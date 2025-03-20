@@ -9,5 +9,13 @@ The code below takes approximately 10s to generate an vector of converted estima
 
 `print(results)`
 
-`       hsq_l     se_hsq_l        csq_l     se_csq_l         Crit 
-3.400342e-01 2.806736e-02 1.764542e-01 6.205887e-02 4.079718e-09 `
+
+`       hsq_l     se_hsq_l        csq_l     se_csq_l         Crit` 
+
+`3.400342e-01 2.806736e-02 1.764542e-01 6.205887e-02 4.079718e-09 `
+
+`hsq_l` and `se_hsq_l` are the converted heritability on the liability scale and its corresponding standard error. 
+
+`csq_l` and `se_csq_l` are the converted residual correlation (e.g., due to shared environmental effects or assortative mating) on the liability scale and its corresponding standard error. 
+
+`Crit` is a tolerance parameter that determines the convergence of the algoirthm. The default value is to call convergence if `Crit` is lower than 1e-6.
