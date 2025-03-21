@@ -1,7 +1,17 @@
-This is an example to run the main function `ConvFunc()`.
+**Required `R` packages to use the `ConvFunc()` function**
+`library(MASS)`
 
+`library(fMultivar)`
 
-Assuming that FSIR analysis for a binary trait with a prevalence K=0.3 was performed and the following estimates on the observed 0-1 scale were obtained: hsq = 0.224 (standard error (s.e.) 0.0189) and csq = 0.0999 (s.e. 0.0374).
+`library(calculus)`
+
+`library(numDeriv)`
+
+**Example to to run the main function `ConvFunc()`**
+
+Let us assume that a FSIR analysis for a binary trait with a prevalence K=0.3 was performed and the following estimates on the observed 0-1 scale were obtained: 
+
+hsq = 0.224 (standard error (s.e.) 0.0189) and csq = 0.0999 (s.e. 0.0374).
 
 The code below takes approximately 10s to generate an vector of converted estimates on the liability scale.
 
