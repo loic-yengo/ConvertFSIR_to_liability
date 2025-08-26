@@ -3,6 +3,15 @@ library(fMultivar)
 library(calculus)
 library(numDeriv)
 
+convPearsonToTetrachoric <- function(r_01,K){
+  t    <- qnorm(1-K)
+  P_11 <- K*K + r_01 * K*(1-K)
+  mod  <- optim(par=0,fn=function(rho){
+    abs( P_11 - fMultivar::pnorm2d(-t,-t, rho = rho)[1] )
+  },method = "Brent",lower=-1,upper=1)
+  return(mod$par)
+}
+
 ConvertToObserved <- function(csq_l=0.2,hsq_l=0.3,K=0.1,s=0.038){
   t  <- qnorm(1-K)
   f0 <- function(x){
