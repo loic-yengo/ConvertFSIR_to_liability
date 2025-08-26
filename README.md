@@ -39,15 +39,4 @@ Here are the results...
 
 `Crit` is a tolerance parameter that determines the convergence of the algoirthm. The default value is to call convergence if `Crit` is lower than 1e-6.
 
-**Step 4 (optional)**: Convert Pearson correlation coefficients using the `R` function `convPearsonToTetrachoric()` given below
-`
-convPearsonToTetrachoric <- function(r_01,K){
-  t    <- qnorm(1-K)
-  P_11 <- K*K + r_01 * K*(1-K)
-  mod  <- optim(par=0,fn=function(rho){
-    abs( P_11 - fMultivar::pnorm2d(-t,-t, rho = rho)[1] )
-  },method = "Brent",lower=-1,upper=1)
-  return(mod$par)
-}
-`
-
+**Step 4 (optional)**: Convert Pearson correlation coefficients using the `R` function `convPearsonToTetrachoric()` defined in the `ConvertToLiabilityFunction.R` script.
