@@ -39,4 +39,8 @@ Here are the results...
 
 `Crit` is a tolerance parameter that determines the convergence of the algoirthm. The default value is to call convergence if `Crit` is lower than 1e-6.
 
-**Step 4 (optional)**: Convert Pearson correlation coefficients using the `R` function `convPearsonToTetrachoric()` defined in the `ConvertToLiabilityFunction.R` script.
+**Step 4 (optional)**: Convert Pearson correlation coefficients into tetrachoric correlation coefficients using the `R` function `convPearsonToTetrachoric()` defined in the `ConvertToLiabilityFunction.R` script.
+
+`r_tetra = convPearsonToTetrachoric(r_01=0.224,K=0.1)`
+
+`print(r_tetra)`
