@@ -44,3 +44,6 @@ Here are the results...
 `r_tetra = convPearsonToTetrachoric(r_01=0.224,K=0.1)`
 
 `print(r_tetra)`
+
+**Correction**
+On Oct 28th 2026, Jonas Meisner spotted a mistake the R function used to calculate the standard errors of converted estimates. This mistake has now been corrected in `ConvertToLiabilityFunction.R` (lines 92-97).
