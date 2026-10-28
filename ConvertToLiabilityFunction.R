@@ -3,15 +3,6 @@ library(fMultivar)
 library(calculus)
 library(numDeriv)
 
-convPearsonToTetrachoric <- function(r_01,K){
-  t    <- qnorm(1-K)
-  P_11 <- K*K + r_01 * K*(1-K)
-  mod  <- optim(par=0,fn=function(rho){
-    abs( P_11 - fMultivar::pnorm2d(-t,-t, rho = rho)[1] )
-  },method = "Brent",lower=-1,upper=1)
-  return(mod$par)
-}
-
 ConvertToObserved <- function(csq_l=0.2,hsq_l=0.3,K=0.1,s=0.038){
   t  <- qnorm(1-K)
   f0 <- function(x){
@@ -91,10 +82,19 @@ ConvFun <- function(hsq_01,se_hsq_01,
   H <- function(theta_l){
     ConvertToObserved(csq_l=theta_l[1],hsq_l=theta_l[2],K=K,s=0.038)
   }
+  
+  ## Old -- version
   CovMat    = matrix(c(se_csq_01,
                        rho*se_csq_01*se_hsq_01,
                        se_csq_01*se_hsq_01,
                        se_hsq_01),2,2)^2
+  
+  ## New -- corrected by Jonas Meisner, on Oct 28, 2026
+  ## Thank you, Jonas!
+  CovMat    = matrix(c(se_csq_01^2,
+                       rho*se_csq_01*se_hsq_01,
+                       rho*se_csq_01*se_hsq_01,
+                       se_hsq_01^2),2,2)
   
   theta_01   <- c(csq_01=csq_01,hsq_01=hsq_01)
   theta_l    <- H_(theta_01)
