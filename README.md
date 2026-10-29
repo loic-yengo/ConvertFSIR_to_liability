@@ -46,4 +46,4 @@ Here are the results...
 `print(r_tetra)`
 
 **Correction**
-On Oct 28th 2026, Jonas Meisner spotted a mistake the R function used to calculate the standard errors of converted estimates. This mistake has now been corrected in `ConvertToLiabilityFunction.R` (lines 92-97).
+On Oct 28th 2026, Jonas Meisner spotted a mistake in the R function used to calculate standard errors of converted estimates. This mistake has now been corrected in `ConvertToLiabilityFunction.R` (lines 92-97).
